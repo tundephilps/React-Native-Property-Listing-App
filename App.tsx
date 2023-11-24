@@ -9,11 +9,12 @@ import Search from "./components/Search";
 import ShortLetList from "./components/ShortLetList";
 import Homepage from "./screens/Homepage";
 import NotificationsScreen from "./screens/NotificationsScreen";
+import FavoritesScreen from "./screens/FavoritesScreen";
 
 export default function App() {
   return (
     <View>
-      <NotificationsScreen />
+      <FavoritesScreen />
     </View>
   );
 }
