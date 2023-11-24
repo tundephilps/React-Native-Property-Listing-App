@@ -10,11 +10,12 @@ import ShortLetList from "./components/ShortLetList";
 import Homepage from "./screens/Homepage";
 import NotificationsScreen from "./screens/NotificationsScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 export default function App() {
   return (
     <View>
-      <FavoritesScreen />
+      <ProfileScreen />
     </View>
   );
 }
