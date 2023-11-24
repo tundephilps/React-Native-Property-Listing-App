@@ -13,7 +13,7 @@ import SaleList from "../components/SaleList";
 
 const Homepage = () => {
   return (
-    <SafeAreaView style={{}}>
+    <SafeAreaView>
       <ScrollView>
         <StatusBar backgroundColor="cyan" style="light" />
         {/* Top */}
@@ -99,21 +99,35 @@ const Homepage = () => {
           </View>
         </View>
 
-        <View
-          style={{ backgroundColor: "white", marginTop: 12, paddingBottom: 12 }}
-        >
-          <RentList />
-        </View>
-        <View
-          style={{ backgroundColor: "white", marginTop: 12, paddingBottom: 12 }}
-        >
-          <ShortLetList />
-        </View>
+        <View style={{ backgroundColor: "lightgray" }}>
+          <View
+            style={{
+              backgroundColor: "white",
+              marginTop: 12,
+              paddingBottom: 12,
+            }}
+          >
+            <RentList />
+          </View>
+          <View
+            style={{
+              backgroundColor: "white",
+              marginTop: 12,
+              paddingBottom: 12,
+            }}
+          >
+            <ShortLetList />
+          </View>
 
-        <View
-          style={{ backgroundColor: "white", marginTop: 12, paddingBottom: 12 }}
-        >
-          <SaleList />
+          <View
+            style={{
+              backgroundColor: "white",
+              marginTop: 12,
+              paddingBottom: 12,
+            }}
+          >
+            <SaleList />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

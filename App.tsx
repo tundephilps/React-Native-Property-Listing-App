@@ -8,11 +8,12 @@ import SaleList from "./components/SaleList";
 import Search from "./components/Search";
 import ShortLetList from "./components/ShortLetList";
 import Homepage from "./screens/Homepage";
+import NotificationsScreen from "./screens/NotificationsScreen";
 
 export default function App() {
   return (
     <View>
-      <Homepage />
+      <NotificationsScreen />
     </View>
   );
 }
