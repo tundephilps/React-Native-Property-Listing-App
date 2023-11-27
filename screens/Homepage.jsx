@@ -1,5 +1,12 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Tabs from "../components/Tabs";
@@ -11,7 +18,14 @@ import RentList from "../components/RentList";
 import ShortLetList from "../components/ShortLetList";
 import SaleList from "../components/SaleList";
 
-const Homepage = () => {
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import CustomDrawerContent from "../components/CustomDrawerContent";
+
+import BottomTab from "../components/BottomTab";
+const Drawer = createDrawerNavigator();
+
+const Homepage = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -39,13 +53,13 @@ const Homepage = () => {
               </Text>
             </View>
 
-            <View>
+            <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
               <Image
                 style={{ height: 42, width: 42 }}
                 source={require("../assets/menu1.png")}
                 resizeMode="cover"
               />
-            </View>
+            </TouchableOpacity>
           </View>
           {/* Search */}
           <View
@@ -130,6 +144,8 @@ const Homepage = () => {
           </View>
         </View>
       </ScrollView>
+
+      <BottomTab />
     </SafeAreaView>
   );
 };
