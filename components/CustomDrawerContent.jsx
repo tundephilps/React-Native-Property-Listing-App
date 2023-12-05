@@ -16,12 +16,21 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
 
+import * as Linking from "expo-linking"; // For Expo projects
 import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = () => {
   const navigation = useNavigation(); // Get the navigation object
+
+  const openWebsite = () => {
+    Linking.openURL("https://buyletlive.com/research-insights");
+  };
+
+  const openBlog = () => {
+    Linking.openURL("https://buyletlive.com/blog");
+  };
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -94,7 +103,9 @@ const CustomDrawerContent = () => {
           <Text>Developers</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Blogs")}
+          //onPress={() => navigation.navigate("Blogs")}
+
+          onPress={openBlog}
           style={{
             display: "flex",
             flexDirection: "row",
@@ -118,7 +129,8 @@ const CustomDrawerContent = () => {
           <Text>Contact Us</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Research")}
+          onPress={openWebsite}
+          //    onPress={() => navigation.navigate("Research")}
           style={{
             display: "flex",
             flexDirection: "row",

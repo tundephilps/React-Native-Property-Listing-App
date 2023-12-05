@@ -1,18 +1,31 @@
 import React from "react";
-import { View, Text, Image, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
 
+import { useNavigation } from "@react-navigation/native";
+
 const CardComponent = ({ item }) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate("PropertyDetails")}
+    >
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.description}</Text>
         <Text style={styles.description}>{item.price}</Text>
         <Text style={{ fontWeight: "200" }}>{item.address}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

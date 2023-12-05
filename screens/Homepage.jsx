@@ -143,6 +143,7 @@ const Homepage = ({ navigation }) => {
             <SaleList />
           </View>
         </View>
+        <View style={{ padding: 31 }} />
       </ScrollView>
 
       <BottomTab />

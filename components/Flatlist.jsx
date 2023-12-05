@@ -1,15 +1,29 @@
 import React from "react";
-import { View, Text, Image, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+
+import { useNavigation } from "@react-navigation/native";
 
 const CardComponent = ({ item }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate("PropertyDetails")}
+    >
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

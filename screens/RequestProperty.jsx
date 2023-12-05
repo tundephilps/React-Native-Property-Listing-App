@@ -109,7 +109,7 @@ const RequestProperty = ({ navigation }) => {
               gap: 12,
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <AntDesign name="arrowleft" size={24} color="white" />
             </TouchableOpacity>
             <Text style={{ fontWeight: "200", color: "white", fontSize: 18 }}>

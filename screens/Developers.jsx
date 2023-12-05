@@ -1,10 +1,17 @@
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 
-const Developers = () => {
+const Developers = ({ navigation }) => {
   const companies = [
     {
       name: "Brains and Hammers",
@@ -62,19 +69,20 @@ const Developers = () => {
           padding: 14,
         }}
       >
-        <View
+        <TouchableOpacity
           style={{
             display: "flex",
             alignItems: "center",
             flexDirection: "row",
             gap: 12,
           }}
+          onPress={() => navigation.goBack()}
         >
           <AntDesign name="arrowleft" size={24} color="white" />
           <Text style={{ fontWeight: "200", color: "white", fontSize: 18 }}>
             Notifications
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <ScrollView
         style={{ padding: 16, backgroundColor: "white", paddingBottom: 22 }}
