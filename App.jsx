@@ -22,6 +22,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import PropertyDetails from "./screens/PropertyDetails";
 import InspectForm from "./screens/InspectForm";
 import VerifyForm from "./screens/VerifyForm";
+import SplashScreen from "./screens/SplashScreen";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -34,7 +35,13 @@ const DrawerNavigator = ({ navigation }) => {
     >
       <Drawer.Screen name="Menu" options={{ headerShown: false }}>
         {() => (
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="Splash">
+            <Stack.Screen
+              name="Splash"
+              component={SplashScreen}
+              options={{ headerShown: false }}
+            />
+
             <Stack.Screen
               name="Homepage"
               component={Homepage}
@@ -162,6 +169,7 @@ export default function App() {
     <>
       <NavigationContainer>
         <DrawerNavigator />
+        {/* <SplashScreen /> */}
       </NavigationContainer>
     </>
   );
