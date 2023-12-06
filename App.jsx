@@ -20,6 +20,8 @@ import CustomDrawerContent from "./components/CustomDrawerContent";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import PropertyDetails from "./screens/PropertyDetails";
+import InspectForm from "./screens/InspectForm";
+import VerifyForm from "./screens/VerifyForm";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -82,25 +84,18 @@ const DrawerNavigator = ({ navigation }) => {
             <Stack.Screen
               name="PropertyDetails"
               component={PropertyDetails}
-              //  options={{ headerShown: false }}
-
-              //    options={({ route }) => ({ title: route.params.property.name })}
+              options={{ headerShown: false }}
             />
-            {/* <Stack.Screen
-              name="Research"
-              listeners={({ navigation }) => ({
-                tabPress: (e) => {
-                  e.preventDefault(); // Prevent default behavior of tab press
-
-                  // Navigate to the WebScreen with the desired URL
-                  navigation.navigate("Research", {
-                    url: "https://buyletlive.com/research-insights",
-                  }); // Replace URL with your desired external link
-                },
-              })}
-              component={Research}
-            /> */}
-            {/* Other screens within the nested stack */}
+            <Stack.Screen
+              name="InspectForm"
+              component={InspectForm}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="VerifyForm"
+              component={VerifyForm}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         )}
       </Drawer.Screen>
@@ -167,7 +162,6 @@ export default function App() {
     <>
       <NavigationContainer>
         <DrawerNavigator />
-        {/* <PropertyDetails /> */}
       </NavigationContainer>
     </>
   );

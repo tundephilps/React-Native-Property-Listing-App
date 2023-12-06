@@ -7,11 +7,14 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import Swiper from "react-native-swiper";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import InspectForm from "./InspectForm";
+import VerifyForm from "./VerifyForm";
 
 const CardComponent = ({ item }) => {
   return (
@@ -27,6 +30,26 @@ const CardComponent = ({ item }) => {
 
 const PropertyDetails = ({ navigation }) => {
   const [swiperIndex, setSwiperIndex] = useState(0);
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [modalVisible2, setModalVisible2] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  const openModal2 = () => {
+    setModalVisible2(true);
+  };
+
+  const closeModal2 = () => {
+    setModalVisible2(false);
+  };
 
   const data = [
     {
@@ -342,9 +365,17 @@ const PropertyDetails = ({ navigation }) => {
           <Text style={{ paddingTop: 12, paddingBottom: 16 }}>
             Would you like to make a request to inspect this property
           </Text>
-          <View style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={openModal}>
             <Text style={{ color: "white" }}>Inspect</Text>
-          </View>
+          </TouchableOpacity>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={closeModal}
+          >
+            <InspectForm closeModal={closeModal} />
+          </Modal>
         </View>
         <View style={{ padding: 8 }} />
 
@@ -373,9 +404,17 @@ const PropertyDetails = ({ navigation }) => {
           >
             Would you like to verify the features of this property?
           </Text>
-          <View style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={openModal2}>
             <Text style={{ color: "white", fontWeight: "200" }}>Verify</Text>
-          </View>
+          </TouchableOpacity>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible2}
+            onRequestClose={closeModal2}
+          >
+            <VerifyForm closeModal2={closeModal2} />
+          </Modal>
         </View>
       </View>
       <View
